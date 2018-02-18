@@ -45,8 +45,8 @@ int main ()
 			printf("Quantos e %d vezes %d: ", n1, n2); // Aluno digita resultado
 			scanf("%d", &mult_aluno); // Le o resultado do aluno
 			
-			numero_mensagem = rand()%4;
-			
+			numero_mensagem = rand()%4; // Gera números aleatórios para a mensagem
+		    // Verifica o que o aluno digitou condiz com a resposta (multiplicação)	
 		    if (mult_aluno == multiplicacao)
 		    {
 		    	printf("%s ", mensagens_acertos[numero_mensagem][100]);
