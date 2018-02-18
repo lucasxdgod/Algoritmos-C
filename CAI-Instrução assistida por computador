@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<locale.h>
+#include<string.h>
+/*
+Autor: Lucas Felipe Boaventura
+
+Instrução assistida por computador
+*/
+
+int main ()
+{
+	int n1, n2, multiplicacao;
+	  
+	
+	// Pequeno banco de dados de mensagem criada para mostrar ao aluno e incentivalo 
+	char mensagens_acertos [4][100] = {
+							     		"Muito bem!",
+	                           			"Excelente", 
+				              			"Bom trabalho", 
+				 			  			"Certo. Continue assim"};
+	char mensagens_erros [4][100] = {
+										"Nao. Tente novamente, por favor",
+				 			  			"Errado. Tente mais tarde",
+				              			"Nao desista",
+	             			  			"Nao. Continue tentando"};
+										
+				 		      
+	
+	srand (time (NULL)); // semente para geração de números aleatórios
+	
+	// Atribuindo numeros aleatórios aos números que serão multiplicados
+	n1 = rand() %10; 
+	n2 = rand () %10;
+	
+	multiplicacao =n1*n2;
+	
+	int mult_aluno; // Resposta do aluno 
+	char caractere_saida;
+	int numero_mensagem;
+	
+	do{
+	
+			printf("Quantos e %d vezes %d: ", n1, n2); // Aluno digita resultado
+			scanf("%d", &mult_aluno); // Le o resultado do aluno
+			
+			numero_mensagem = rand()%4;
+			
+		    if (mult_aluno == multiplicacao)
+		    {
+		    	printf("%s ", mensagens_acertos[numero_mensagem][100]);
+		    	
+				printf("\n Deseja sair S(sim)/N(nao): "); // Poderia colocar um "Deseja realmente sair ??"
+				scanf("%c", &caractere_saida);
+		    }
+		    else 
+		    {
+		    	printf("%s ", mensagens_erros[numero_mensagem][100]);
+		    }
+    
+	
+	} while((mult_aluno == multiplicacao) && (caractere_saida =='N')); // condicao de verificacao
+	
+	return 0;
+	
+}
